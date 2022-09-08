@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+
+// import style from './App.moudle.css'    1
+
+import DefaultLayout from './Layout/DefaultLayout'
+import store from './redux/store';
+import { getUserInfo } from './redux/user/slice';
+
+// import store  from './redux/store'      2
+
+// import {getUserInfo} from './redux/user/slice'     3
 
 function App() {
+  useEffect(() => {
+    store.dispatch(getUserInfo())
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //  <div className={style.wrapper}>    4
+    //   <DefaultLayout/>
+    // </div>
   );
 }
 
