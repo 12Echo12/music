@@ -2,8 +2,8 @@ import { FC } from "react";
 
 import style from './index.module.css'
 // 音乐控制组件
-import MusicControl from '../../../components/musicControl/MusicControl'
-import VolumeControl from '../../../components/VolumeControl/VolumeControl'
+import MusicControl from '../../../components/MusicControl/index'
+import VolumeControl from '../../../components/VolumeControl/index'
 import MusicBarLeft from './MusicBarLeft/index'
 
 import store, { RootState } from '../../../redux/store'

@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import style from './MusicControl.module.css'
-import store from '../../redux/store'
+import store, { RootState } from '../../redux/store'
 import ProgressBar from '../progressBar/ProgressBar'
 
 // 小工具 ，将时间转换成秒进行表示
@@ -21,14 +21,9 @@ import {
     MusicControlState
 } from '../../redux/musicControl/slice'
 import { musicListSlice, MusicListState } from '../../redux/musicList/slice'
+import { useSelector } from 'react-redux'
 
-interface MusicControlProps extends MusicControlState, MusicListState {
-    setCurTime: (curTime: number) => void
-    setDuration: (duration: number) => void
-    setIsPlay: (isPlay: boolean) => void
-    setProgress: (progress: number) => void
-    setAdjust: (adjust: boolean) => void
-} 
+interface MusicControlProps { } 
 
 const IconFont = createFromIconfontCN({
     scriptUrl: 'https://at.alicdn.com/t/font_3370146_f9nlawuexbc.js'
@@ -39,8 +34,12 @@ const handleTogglePlay = () => {
 
     audioInstance.togglePlay()
 }
-const MusicCintrol: FC<MusicControlProps> = (props) => {
-    const { isPlaying, duration, currentTime, progress, isAdjusting } = props
+const MusicCintrol: FC<MusicControlProps> = () => {
+    const isPlaying = useSelector((state: RootState) => state.musicControl.isPlaying)
+    const duration = useSelector((state: RootState) => state.musicControl.duration)
+    const currentTime  = useSelector((state: RootState) => state.musicControl.currentTime)
+    const progress = useSelector((state: RootState) => state.musicControl.progress)
+    const isAdjusting = useSelector((state: RootState) => state.musicControl.isAdjusting)
     const handleTogglePlay = () => {
         console.log('toggle')
 

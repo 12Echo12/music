@@ -3,7 +3,13 @@ import { useListControl } from './listController'
 import { getSongInfoAndSet, musicControlSlice } from '../redux/musicControl/slice'
 import { publicSlice } from '../redux/publicSlice/slice'
 import audioInstance from './musicPlayer'
+// 防抖
+import { debounce, throttle } from '../utils'
 
+import { off } from 'process'
+
+import { musicListSlice } from '../redux/musicList/slice'
+import { getSongDetail } from '../service/api/music'
 
 //新增一首音乐
 export const addMusic = async (data: any, options = { needPlay: true, needFetch: false }) => {
@@ -35,7 +41,7 @@ export const addMusic = async (data: any, options = { needPlay: true, needFetch:
 export const getMusicById = (id: string) => {
     const listControl = useListControl()
     const { list } = listControl.getList()
-
+  
     const idx = list.findIndex((item: any) => item.id === id)
     return { music: list[idx], idx }
 }
