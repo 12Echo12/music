@@ -55,7 +55,7 @@ const MusicDetail: FC = () => {
             </div>
 
 
-
+            
 
 
 
@@ -66,6 +66,7 @@ const MusicDetail: FC = () => {
 
 export default MusicDetail
 
+// 背景
 const MusicDetailHeader = styled.div<{ bgImg: string }>`
   background-image: ${(props) => `url(${props.bgImg})`};
   background-position: center center;

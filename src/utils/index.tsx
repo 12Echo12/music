@@ -14,3 +14,37 @@ export function parseSecondToTime(second: number) {
 
     return hour > 0 ? `${pad(hour)}:${pad(minute)}:${pad(seconds)}` : `${pad(minute)}:${pad(seconds)}`
 }
+
+// 处理返回的歌词  并返回要展示的歌词形式（数组）
+export const parseLrc = (lrc: string) => {
+    if (!lrc) {
+        return []
+    }
+
+    const lrcList = lrc.split('\n')
+
+    const lrcArr: {
+        lrc: string
+        time: number
+    }[] = []
+
+    lrcList.forEach((item: string) => {
+        const lyricExp = /^\[(\d{2}):(\d{2}).(\d*)\](.*)/
+        const timeStr = item.match(lyricExp)
+        const content = item.replace(/\[\d{2}:\d{2}\.\d*\]/g, '')
+
+        if (timeStr) {
+            const minute = +timeStr[1]
+            const second = +timeStr[2]
+            const millisecond = +timeStr[3]
+            const totalTime = minute * 60 + second + millisecond / 1000
+
+            lrcArr.push({
+                lrc: content,
+                time: totalTime
+            })
+        }
+    })
+
+    return lrcArr
+}
