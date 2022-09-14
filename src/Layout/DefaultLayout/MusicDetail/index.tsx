@@ -11,6 +11,11 @@ import { useSelector } from "react-redux";
 
 // 全屏
 import fullScreen from '../fullScreen/index'
+import ChangPian from "../../../components/ChangPian";
+import Lyric from "../../../components/lyric";
+// 评论
+import CommentTabPage from '../../../pages/component/commentTabPage'
+import Comment from '../../../components/CommentList'
 
 
 const MusicDetail: FC = () => {
@@ -22,12 +27,17 @@ const MusicDetail: FC = () => {
     const [parsedLrc, setParseLrc] = useState<any[]>([])
     const [songHeaderInfoShow, setsongHeaderInfoShow] = useState(false)
 
+    const musicDetailEl = document.getElementById('musicDetail')
+
     // 关闭该组件
     const handleClose = () => {
         store.dispatch(publicSlice.actions.setSongDetailOpen(false))
     }
 
-
+    // 换页后重新滚到头部
+    const changePage = (i: number) => {
+        musicDetailEl?.scrollTo({ top: 450, behavior: 'smooth' })
+    }
 
     return (
         <div className={style.musicDetail}>
@@ -53,14 +63,32 @@ const MusicDetail: FC = () => {
                     全屏纯享
                 </div>
             </div>
-
-
-            
-
-
-
-
-        </div>    
+            {/* 歌曲详情部分下部分 */}
+            <div id='musicDetail' className={style.content}>
+                {/* 歌曲信息部分 */}
+                <div className={style.songInfoArea}>
+                    {/* 歌名 歌手部分 */}
+                    <div className={style.songBaseInfo} id='songBaseInfo'>
+                        <div className={`${style.songName} line1`}>{song?.name}</div>
+                        <div className={`${style.ar} line1`}>
+                            <ArNameItem artists={song?.ar} /> - {song?.al?.name}
+                        </div>
+                    </div>
+                    {/* 唱片部分 */}
+                    <div className={`${style.songPicWrap} `}>
+                        <ChangPian isPlaying={isPlaying} songPicUrl={song?.al?.picUrl} />
+                    </div>
+                    {/* 歌词部分 */}
+                    <div className={style.lrc}>
+                        <Lyric lrc={parsedLrc} currentTime={currentTime} _uid='detailPage' />
+                    </div>
+                </div>
+                {/* 评论部分 */}
+                <div className={style.comment}>
+                    <CommentTabPage onPageChange={changePage} id={song?.id} type='Song' />
+                </div>
+            </div>
+        </div>
     )
 }
 

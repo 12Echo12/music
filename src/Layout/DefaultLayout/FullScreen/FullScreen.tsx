@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { modes } from "react-transition-group/SwitchTransition";
 import styled from "styled-components";
 import ChangPian from "../../../components/ChangPian";
+import Lyric from "../../../components/lyric";
 import { RootState } from "../../../redux/store";
 import MusicBar from "../MusicBar";
 import style from './FullScreen.module.css'
@@ -40,7 +41,7 @@ const FullScreen: FC<FullScreenProps> = () => {
             <div className={style.changeMode}>
                 {/* 标准模式 */}
                 <div onClick={() => { setMode(Mode.default) }}
-                    className={`${style.modeItem} ${mode === Mode.default ? styled.modeActive : ''}`}
+                    className={`${style.modeItem} ${mode === Mode.default ? style.modeActive : ''}`}
                 >
                     标准模式
                     {mode === Mode.default && <CheckOutlined />}
