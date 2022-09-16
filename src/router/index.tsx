@@ -25,6 +25,8 @@ const Search = lazy(() => import('../pages/search/Search'))
 const Artists = lazy(() => import('../pages/home/artists/Artists'))
 // const VideoDetail = lazy(() => import('../pages/videoDetail/v/VideoDetail'))
 
+
+// requireAuth 要求授权（要求登录后才能跳转路由）
 function RequireAuth({ children }: { children: JSX.Element }) {
     const userInfo = useSelector((state: RootState) => state.user.userInfo)
     const location = useLocation()
@@ -45,7 +47,9 @@ export const GetRoutes = () => {
         {
             path: '/',
             element: (
+                // 需要授权登录才能点击跳转的路由
                 <RequireAuth>
+                    {/* 优化懒加载 */}
                     <Suspense fallback={<Loading />}>
                         <Content />
                     </Suspense>
@@ -56,7 +60,7 @@ export const GetRoutes = () => {
                     path: '/',
                     element: (
                         <Suspense fallback={<Loading />}>
-                            <Home />
+                            <Home/>
                         </Suspense>
                     ),
                     children: [
