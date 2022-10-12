@@ -1,5 +1,5 @@
 import { FC } from "react";
-import style from './TabBar.module.css'
+import style from './index.module.css'
 import { useLocation, useRoutes } from 'react-router-dom'
 import React from "react";
 
@@ -19,10 +19,11 @@ const TabBar: FC<TabBarProps> = (props) => {
     activeIndex = route ? useLocation().pathname : activeIndex
 
     children = children?.map((o, i) => {
+        // 元素克隆主要为了合并一些属性
         return React.cloneElement(o, {
             active: route
-                ? 
-                
+                ? activeIndex === o.props.path || o.props.regPath?.test(activeIndex)
+                : activeIndex === o.props.id  
         })
     })
     return (

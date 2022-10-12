@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react'
-import style from './Content.module.css'
+import style from './index.module.css'
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useNavigate } from 'react-router-dom'
 import { FC } from 'react'
 import { linkItems, LinkItemTypes } from './config'

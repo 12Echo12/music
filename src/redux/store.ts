@@ -10,7 +10,7 @@ import { publicSlice } from './publicSlice/slice'
 import { fmListSlice } from './fmList/slice'
 
 import musicInstance from '../controller/musicPlayer'
-import { changeMusic } from '../controller/listController'
+import { changeMusic } from '../controller/musicController'
 
 // redux-persist
 const SetTransform = createTransform(

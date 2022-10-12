@@ -7,7 +7,7 @@ import ChangPian from "../../../components/ChangPian";
 import Lyric from "../../../components/lyric";
 import { RootState } from "../../../redux/store";
 import MusicBar from "../MusicBar";
-import style from './FullScreen.module.css'
+import style from './index.module.css'
 
 
 

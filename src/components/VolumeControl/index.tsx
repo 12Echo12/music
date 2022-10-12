@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { musicControlSlice, MusicControlState } from '../../redux/musicControl/slice'
 import store, { RootState } from '../../redux/store'
-import style from './VolumeControl.module.css'
+import style from './index.module.css'
 import audioInstance from '../../controller/musicPlayer'
 import { useSelector } from '../../redux/hooks'
 

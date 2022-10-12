@@ -1,7 +1,7 @@
 import { SiderProps } from 'antd'
 import React, { Children, FC, FunctionComponent } from 'react'
 import { useLocation } from 'react-router-dom'
-import style from './SideBar.module.css'
+import style from './index.module.css'
 
 interface SiderBarProps{
     children: React.ReactElement<any, any>[] | React.ReactElement<any, any>

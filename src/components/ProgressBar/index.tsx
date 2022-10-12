@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import style from './ProgressBar.module.css'
+import style from './index.module.css'
 import styled from 'styled-components'
 
 

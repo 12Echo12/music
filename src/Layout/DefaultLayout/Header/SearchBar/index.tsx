@@ -3,14 +3,14 @@
 import { RightOutlined, SearchOutlined } from '@ant-design/icons'
 import { FC, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import style from './SearchBar.module.css'
+import style from './index.module.css'
 import { CSSTransition } from 'react-transition-group'
 import { getHotSearch, getSearchSuggest, SEARCH_TYPE } from '../../../../service/api/search'
 import { SearchSuggestType, useSearchSuggest } from '../../../../hooks/useSearchSuggest'
 import store from '../../../../redux/store'
 import { publicSlice } from '../../../../redux/publicSlice/slice'
 // ?????
-import { addMusic, getSongBaseInfoAndSet } from '../../../../controller/listController'
+import { addMusic, getSongBaseInfoAndSet } from '../../../../controller/musicController'
 
 interface SearchBarProps { }
 

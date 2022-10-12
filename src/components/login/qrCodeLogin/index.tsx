@@ -1,7 +1,7 @@
 
 import { FC, useEffect, useState } from 'react'
 
-import style from './QrCodeLogin.module.css'
+import style from './index.module.css'
 
 import qrCodeTipImage from '../../../assets/img/qrCodeSuggest.png'
 

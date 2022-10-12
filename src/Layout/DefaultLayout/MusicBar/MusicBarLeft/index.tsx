@@ -17,7 +17,7 @@ import store, { RootState } from '../../../../redux/store'
 import { downLoadMusic } from '../../../../service/api/music'
 // 后端接口？？？
 import { handleToggleLike } from '../../../../service/utils'
-import style from './MusicBarLeft.module.css'
+import style from './index.module.css'
 
 import Like from '../../../../components/Like/index'
 import { useIsLiked } from '../../../../hooks/useLikeList'

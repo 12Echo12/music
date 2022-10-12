@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import styled from 'styled-components'
-import style from './Changpian.module.css'
+import style from './index.module.css'
 // 唱片的针
 import changzhen from '../../assets/img/changzhen.png'
 

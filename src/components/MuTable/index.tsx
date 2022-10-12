@@ -1,5 +1,5 @@
 import { FC, FunctionComponent } from 'react'
-import style from './MuTable.module.css'
+import style from './index.module.css'
 import styled from 'styled-components'
 import { useClick } from '../../hooks/useClick'
 import { pad } from '../../utils'
@@ -41,7 +41,7 @@ const MuTable: FC<TableProps> = (props) => {
     if (!data || (data && data?.length === 0)) {
         return <div className={style.empty}>暂无数据</div>
     }
-    // ????
+    // ???????
     const [click, doubleClick] = useClick({
         clickFn: onColClick ?? (() => { }),
         doubleFn: onColDoubleClick ?? (() => { })

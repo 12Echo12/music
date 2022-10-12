@@ -1,7 +1,7 @@
 import { FC, FunctionComponent } from 'react'
 import { useSelector } from '../../redux/hooks'
 import store from '../../redux/store'
-import style from './PlayList.module.css'
+import style from './index.module.css'
 interface PlayListProps { }
 import MuTable, { TableColumnType } from '../MuTable/index'
 // ??

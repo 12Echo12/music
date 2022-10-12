@@ -1,6 +1,6 @@
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { FC, useEffect, useState } from "react";
-import style from './Pagination.module.css'
+import style from './index.module.css'
 
 interface PaginationProps {
     total: number

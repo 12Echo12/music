@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SideBarItemType } from '../type'
-import style from './SideBarItem.module.css'
+import style from './index.module.css'
 
 interface SideBarItemProps extends SideBarItemType {
     children?: React.ReactNode

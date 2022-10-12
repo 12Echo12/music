@@ -1,6 +1,6 @@
 import React from 'react'
 import { FC } from 'react'
-import style from './SideBarGroup.module.css'
+import style from './index.module.css'
 
 interface SideBarGroupProps {
     title?: string

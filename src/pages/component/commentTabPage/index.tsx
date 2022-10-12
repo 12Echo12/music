@@ -1,5 +1,5 @@
 import { FC } from "react"
-import style from './Comment.module.css'
+import style from './index.module.css'
 
 import Pagination from '../../../components/Pagination'
 import CommentList from '../../../components/CommentList'

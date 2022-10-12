@@ -1,9 +1,8 @@
-import { homedir } from "os";
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
-import style from './Home.module.css'
-
-
+import TabBar from "../component/tabBar";
+import TabBarItem from "../component/tabBarItem";
+import style from './index.module.css'
 
 
 interface HomeProps{}

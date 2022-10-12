@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import style from './MusicDetail.module.css'
+import style from './index.module.css'
 
 import { publicSlice } from '../../../redux/publicSlice/slice'
 import store, { RootState } from '../../../redux/store'
@@ -16,6 +16,7 @@ import Lyric from "../../../components/lyric";
 // 评论
 import CommentTabPage from '../../../pages/component/commentTabPage'
 import Comment from '../../../components/CommentList'
+import ArNameItem from "../../../pages/component/arNameItem";
 
 
 const MusicDetail: FC = () => {

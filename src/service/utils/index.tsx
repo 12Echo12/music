@@ -1,6 +1,6 @@
 import store from '../../redux/store'
 import { getLList } from '../../redux/user/slice'
-import { likeMusic } from '../api/reqLoginApi/loginMusicHandle'
+import { likeMusic } from '../api/reLoginApi/loginMusicHandle'
 
 export const handleToggleLike = (id: string | number, isLiked: boolean) => {
     likeMusic({ id, like: !isLiked }).then((res) => {
@@ -8,3 +8,14 @@ export const handleToggleLike = (id: string | number, isLiked: boolean) => {
         userId && store.dispatch(getLList(userId))
     })
 }
+
+
+export const filterPlayList = (playList: any[], userId = '') => {
+    return {
+        ownList: playList.filter((item: { userId: any }) => item.userId == userId),
+        likeList: playList.filter((item: { userId: any }) => item.userId != userId)
+    }
+}
+
+
+

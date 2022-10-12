@@ -1,7 +1,7 @@
 // 创建Login组件
 import { CloseOutlined } from '@ant-design/icons'
 import { FC } from 'react'
-import style from './Login.module.css'
+import style from './index.module.css'
 import createLogin from '../login/index'
 import QrCodeLogin from './qrCodeLogin'
 

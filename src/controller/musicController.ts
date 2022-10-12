@@ -11,6 +11,8 @@ import { off } from 'process'
 import { musicListSlice } from '../redux/musicList/slice'
 import { getSongDetail } from '../service/api/music'
 
+
+
 //新增一首音乐
 export const addMusic = async (data: any, options = { needPlay: true, needFetch: false }) => {
     const listControl = useListControl()
@@ -57,7 +59,7 @@ export const clearPlayList = () => {
 }
 
 
-// 切换上下一首歌曲
+//切换上下一首歌曲
 export const changeMusic = debounce((direction: number, needPlay = true) => {
     const listControl = useListControl()
     const { list, current } = listControl.getList()
@@ -76,3 +78,20 @@ export const changeMusic = debounce((direction: number, needPlay = true) => {
     listControl.curListType === 'fmList' && getSongBaseInfoAndSet(list[newIndex].id)
     // store.dispatch(getSongInfoAndSet(list[newIndex]))
 }, 500)
+
+
+export const setMusicList = (payload: any[], type: 'musicList' | 'fmList') => {
+    const listControl = useListControl()
+    listControl.setList(payload, type)
+
+    changeMusic(0)
+}
+
+//对于歌曲信息不完全的，使用这个函数先获取歌曲详情，再加入列表
+export const getSongBaseInfoAndSet = (id: number) => {
+    getSongDetail(id).then((res) => {
+        const song = res.songs?.[0]
+
+        song && addMusic(song)
+    })
+}

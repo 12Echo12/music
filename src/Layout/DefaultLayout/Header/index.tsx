@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
-import style from './header.module.css'
-import './header.transition.css'
+import style from './index.module.css'
+import './transition.css'
 import logo from '../../../assets/img/logo.png'
 import {
     BorderOutlined,

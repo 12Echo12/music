@@ -1,28 +1,28 @@
 import { lazy, Suspense } from 'react'
 import { Navigate, Route, useLocation, useRoutes } from 'react-router-dom'
-import Loading from '../components/loading/Loading'
-import MVList from '../pages/video/mvList/MVList'
-import Video from '../pages/video/Video'
-import VideoList from '../pages/video/videoList/VideoList'
-import MVDetail from '../pages/videoDetail/mv/MVDetail'
-import VideoDetail from '../pages/videoDetail/v/VideoDetail'
+import Loading from '../components/Loading'
+import MVList from '../pages/video/MvList'
+import Video from '../pages/video'
+import VideoList from '../pages/video/VideoList'
+import MVDetail from '../pages/videoDetail/mv/index'
+import VideoDetail from '../pages/videoDetail/video'
 import store, { RootState } from '../redux/store'
 import createLogin from '../components/login'
 import { useSelector } from 'react-redux'
-import UserDetail from '../pages/userDetail/UserDetail'
-const Content = lazy(() => import('../layout/defalutLayout/content/Content'))
-const Home = lazy(() => import('../pages/home/Home'))
-const MusicDetail = lazy(() => import('../layout/defalutLayout/MusicDetail/MusicDetail'))
-const Suggest = lazy(() => import('../pages/home/suggest/Suggest'))
-const SongSheets = lazy(() => import('../pages/home/songSheets/SongSheets'))
-const HighQuality = lazy(() => import('../pages/HighQuality/HighQuality'))
-const Rank = lazy(() => import('../pages/home/rank/Rank'))
-const PersonalFm = lazy(() => import('../pages/personalFm/PersonalFm'))
-const SongSheet = lazy(() => import('../pages/songSheet/SongSheet'))
-const Album = lazy(() => import('../pages/album/Album'))
-const Artist = lazy(() => import('../pages/artist/Artist'))
-const Search = lazy(() => import('../pages/search/Search'))
-const Artists = lazy(() => import('../pages/home/artists/Artists'))
+import UserDetail from '../pages/userDetail'
+const Content = lazy(() => import('../Layout/DefaultLayout/content/index'))
+const Home = lazy(() => import('../pages/Home'))
+const MusicDetail = lazy(() => import('../Layout/DefaultLayout/musicDetail'))
+const Suggest = lazy(() => import('../pages/Home/suggest'))
+const SongSheets = lazy(() => import('../pages/Home/SongSheets'))
+const HighQuality = lazy(() => import('../pages/HighQuality'))
+const Rank = lazy(() => import('../pages/Home/rank'))
+const PersonalFm = lazy(() => import('../pages/personalFm'))
+const SongSheet = lazy(() => import('../pages/songSheet'))
+const Album = lazy(() => import('../pages/album'))
+const Artist = lazy(() => import('../pages/artist'))
+const Search = lazy(() => import('../pages/search'))
+const Artists = lazy(() => import('../pages/Home/artists'))
 // const VideoDetail = lazy(() => import('../pages/videoDetail/v/VideoDetail'))
 
 
@@ -60,6 +60,7 @@ export const GetRoutes = () => {
                     path: '/',
                     element: (
                         <Suspense fallback={<Loading />}>
+                            {/* 四个跳转路由组件   // 个性推荐、歌单....*/}
                             <Home/>
                         </Suspense>
                     ),
@@ -68,6 +69,7 @@ export const GetRoutes = () => {
                             path: '',
                             element: (
                                 <Suspense fallback={<Loading />}>
+                                    {/* 个性推荐 */}
                                     <Suggest />
                                 </Suspense>
                             )

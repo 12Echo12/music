@@ -1,7 +1,7 @@
 import { createAsyncThunk, PayloadAction, createSlice } from '@reduxjs/toolkit'
 import Toast from '../../components/Toast'
 import { checkLoginStatus, getUserPlayList } from '../../service/api/login'
-import { getLikeList } from '../../service/api/reqLoginApi/songSheets'
+import { getLikeList } from '../../service/api/reLoginApi/songSheets'
 import { filterPlayList } from '../../service/utils'
 import store from '../store'
 import { UserAccountType, UserInfoType } from './userType'

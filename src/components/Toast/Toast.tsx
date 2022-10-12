@@ -1,8 +1,10 @@
-import { FC } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { FunctionComponent } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import style from './Toast.module.css'
-
-const Toast: FC = () => {
+import { globalControl, useQueue } from './useQueue'
+import './transition.css'
+const Toast: FunctionComponent = () => {
+    const [queue] = useQueue()
     return (
         <div className={style.toast}>
             <TransitionGroup>
@@ -20,3 +22,5 @@ const Toast: FC = () => {
         </div>
     )
 }
+
+export default Toast
