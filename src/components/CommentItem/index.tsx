@@ -2,7 +2,7 @@ import { FC } from "react"
 import { Link } from 'react-router-dom'
 
 //less 文件的导入
-import style  from "./index.module.less"
+import style from './index.module.less'
 
 import { LikeOutlined } from '@ant-design/icons'
 

@@ -6,7 +6,7 @@ import { CSSTransition } from 'react-transition-group'
 import { formatNumber } from '../../../utils'
 import { useVideoUrl } from '../../../hooks/useVideoUrl'
 
-import style from './index.module.less'
+import lessStyle from './index.module.less'
 
 import LazyImg from '../../../components/LazyImg'
 import ArNameItem from '../arNameItem'
