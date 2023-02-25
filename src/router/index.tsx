@@ -17,6 +17,8 @@ const Suggest = lazy(() => import('../pages/Home/suggest'))
 const SongSheets = lazy(() => import('../pages/Home/SongSheets'))
 const HighQuality = lazy(() => import('../pages/HighQuality'))
 const Rank = lazy(() => import('../pages/Home/rank'))
+// 新增主播电台页面
+const Anchor = lazy(() => import('../pages/Home/anchor/index'))
 const PersonalFm = lazy(() => import('../pages/personalFm'))
 const SongSheet = lazy(() => import('../pages/songSheet'))
 const Album = lazy(() => import('../pages/album'))
@@ -27,20 +29,20 @@ const Artists = lazy(() => import('../pages/Home/artists'))
 
 
 // requireAuth 要求授权（要求登录后才能跳转路由）
-function RequireAuth({ children }: { children: JSX.Element }) {
-    const userInfo = useSelector((state: RootState) => state.user.userInfo)
-    const location = useLocation()
+// function RequireAuth({ children }: { children: JSX.Element }) {
+//     const userInfo = useSelector((state: RootState) => state.user.userInfo)
+//     const location = useLocation()
 
-    if (!userInfo?.userId) {
-        // Redirect them to the /login page, but save the current location they were
-        // trying to go to when they were redirected. This allows us to send them
-        // along to that page after they login, which is a nicer user experience
-        // than dropping them off on the home page.
-        createLogin.create()
-    }
+//     if (!userInfo?.userId) {
+//         // Redirect them to the /login page, but save the current location they were
+//         // trying to go to when they were redirected. This allows us to send them
+//         // along to that page after they login, which is a nicer user experience
+//         // than dropping them off on the home page.
+//         createLogin.create()
+//     }
 
-    return children
-}
+//     return children
+// }
 
 export const GetRoutes = () => {
     const routes = useRoutes([
@@ -48,12 +50,12 @@ export const GetRoutes = () => {
             path: '/',
             element: (
                 // 需要授权登录才能点击跳转的路由
-                <RequireAuth>
-                    {/* 优化懒加载 */}
-                    <Suspense fallback={<Loading />}>
-                        <Content />
-                    </Suspense>
-                </RequireAuth>
+                <Suspense>
+                {/* 优化懒加载 */ }
+                    <Suspense fallback={<Loading />}> 
+                      < Content /> 
+                     </Suspense > 
+                </Suspense>
             ),
             children: [
                 {
@@ -121,7 +123,23 @@ export const GetRoutes = () => {
                                     <Artists />
                                 </Suspense>
                             )
-                        }
+                        },
+                        {
+                            path: 'anchor',
+                            element: (
+                                <Suspense fallback={<Loading />}>
+                                    <Anchor />
+                                </Suspense>
+                            )
+                        },
+                        {
+                            path: 'anchor/:type',
+                            element: (
+                                <Suspense fallback={<Loading />}>
+                                    <Anchor />
+                                </Suspense>
+                            )
+                        },
                     ]
                 },
                 {

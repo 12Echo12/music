@@ -54,7 +54,7 @@ export function checkLoginStatus() {
 }
 
 //获取用户歌单
-export function getUserPlayList(uid: string) {
+export function getUserPlayList(uid: string | undefined) {
     return axRequest.get({
         url: LoginAPI.GET_USER_PLAYLIST,
         params: {

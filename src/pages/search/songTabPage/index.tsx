@@ -4,7 +4,7 @@ import { IconFont } from "../../../assets/css/iconFont";
 import Like from "../../../components/Like";
 import MuTable, { TableColumnType } from "../../../components/MuTable";
 import Pagination from "../../../components/Pagination";
-import { addMusic, setMusicList } from "../../../controller/musicController";
+import { AddMusic, SetMusicList } from "../../../controller/musicController";
 import { downLoadMusic } from "../../../service/api/music";
 import HeaderButton from "../../component/headerButton";
 
@@ -103,10 +103,10 @@ const SongTabPage: FC<SongTabPageProps> = (props) => {
     ]
     
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
     const handlePlayList = () => {
-        setMusicList(data?.dataList || [], 'musicList')
+        SetMusicList(data?.dataList || [], 'musicList')
     }
 
     return (

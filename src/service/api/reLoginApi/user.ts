@@ -1,4 +1,4 @@
-import axRequest from '../../'
+import axRequest from '../../index'
 
 enum USER_API {
     // 获取用户信息
@@ -6,7 +6,7 @@ enum USER_API {
 }
 
 // 获取用户信息
-export function getUserInfo(uid: string) {
+export function getUserInfo(uid: string|undefined) {
     return axRequest.get({
         url: USER_API.GET_USER_INFO,
         params: {

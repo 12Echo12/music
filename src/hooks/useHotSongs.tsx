@@ -4,7 +4,6 @@ import { getArtistHotsong } from '../service/api/artist'
 import { SongType } from '../type/song'
 
 export const useHotSongs = (id = '') => {
-    if (!id) return [[], true] as [SongType[], boolean]
     const [hotSongs, setHotSongs] = useState<SongType[]>([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -23,5 +22,6 @@ export const useHotSongs = (id = '') => {
                 setLoading(false)
             })
     }, [id])
+    if (!id) return [[], true] as [SongType[], boolean]
     return [hotSongs, loading] as [SongType[], boolean]
 }

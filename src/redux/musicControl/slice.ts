@@ -1,7 +1,7 @@
 import { createAsyncThunk, PayloadAction, createSlice } from '@reduxjs/toolkit'
 import Toast from '../../components/Toast'
 import { useListControl } from '../../controller/listController'
-import { getMusicById } from '../../controller/musicController'
+import { GetMusicById } from '../../controller/musicController'
 import musicInstance from '../../controller/musicPlayer'
 import { getSongComment, getSongLyric, getSongUrl } from '../../service/api/music'
 import { musicListSlice } from '../musicList/slice'

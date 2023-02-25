@@ -5,7 +5,7 @@ import SwiperItem from "../../../components/swiper/SwiperItem";
 import SongSheetItem from "../../component/songSheetItem";
 import LinkTab from "../../component/linkTab";
 
-import { addMusic } from "../../../controller/musicController";
+import { AddMusic } from "../../../controller/musicController";
 import { getBanner } from '../../../service/api/home'
 import { getDailyRecommend } from '../../../service/api/reLoginApi/songSheets'
 import { getPersonalizedSongSheets } from '../../../service/api/music'
@@ -37,7 +37,7 @@ const Suggest: FC<SuggestProps> = () => {
     const handleBannerClick = (item: any) => {
         switch (item.targetType) {
             case 1:
-                addMusic(item.song)
+                AddMusic(item.song)
                 break
         }
     }

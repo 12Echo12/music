@@ -3,7 +3,7 @@ import store from '../redux/store'
 import { getUserPlayList } from '../service/api/login'
 import { filterPlayList } from '../service/utils'
 
-export const useUserPlayList = (id: string) => {
+export const useUserPlayList = (id: string|undefined) => {
     const [ownList, setOwnList] = useState<any[]>([])
     const [likeList, setLikeList] = useState<any[]>([])
     const [loading, setLoading] = useState(false)

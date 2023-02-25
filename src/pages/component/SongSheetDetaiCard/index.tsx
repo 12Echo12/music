@@ -5,7 +5,7 @@ import style from './index.module.css'
 
 
 import MuTable, { TableColumnType } from "../../../components/MuTable"
-import { addMusic } from "../../../controller/musicController"
+import { AddMusic } from "../../../controller/musicController"
 import { useSongSheet } from '../../../hooks/useSongSheet'
 
 import { ToplistType } from '../../../type/topListItem'
@@ -69,7 +69,7 @@ const SongSheetDetailCard: FC<SongSheetDetailCardProps> = (props) => {
 
     // 双击每行，播放歌曲！！！
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
     
     return (

@@ -108,7 +108,7 @@ const QrCodeLogin: FC<QrCodeLoginProps> = ({ handleClose }) => {
                     store.dispatch(getUserInfo())
                     // 自动关闭该登录页面
                     handleClose()
-                    location.reload()
+                    window.location.reload()
                 }
             })
         }, 2000)

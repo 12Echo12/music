@@ -15,7 +15,8 @@ const SideBar: FC<SiderBarProps> = (props) => {
     let activeId = props.activeId
     // ????  
     let children = props.children
-    activeId = route ? useLocation().pathname : activeId
+    let id = useLocation().pathname;
+    activeId = route ? id : activeId
     
     // 看 children 是否是数组，不是的话让其变成数组
     if (!Array.isArray(children)) {

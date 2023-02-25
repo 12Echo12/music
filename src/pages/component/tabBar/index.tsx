@@ -16,7 +16,8 @@ const TabBar: FC<TabBarProps> = (props) => {
     const { route = false } = props
     let activeIndex = props.activeIndex
     let children = props.children
-    activeIndex = route ? useLocation().pathname : activeIndex
+    let id = useLocation().pathname
+    activeIndex = route ? id : activeIndex
 
     children = children?.map((o, i) => {
         // 元素克隆主要为了合并一些属性

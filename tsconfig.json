@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    // "types": [
+    //   "webpack/client"
+    // ],
     "target": "es5",
     "lib": [
       "dom",
@@ -18,9 +21,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "removeComments": true
   },
   "include": [
     "src"
-  ]
+, "server-entry.jsx"  ]
 }

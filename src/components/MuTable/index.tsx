@@ -38,14 +38,17 @@ const MuTable: FC<TableProps> = (props) => {
         hideHeader = false,
         height = 30
     } = props
-    if (!data || (data && data?.length === 0)) {
-        return <div className={style.empty}>暂无数据</div>
-    }
-    // ???????
+
+    // ???
     const [click, doubleClick] = useClick({
         clickFn: onColClick ?? (() => { }),
         doubleFn: onColDoubleClick ?? (() => { })
     })
+    
+    if (!data || (data && data?.length === 0)) {
+        return <div className={style.empty}>暂无数据</div>
+    }
+    
     return (
         <div className={style.muTable}>
             <table>

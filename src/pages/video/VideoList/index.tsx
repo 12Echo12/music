@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import style from './index.module.less'
+import style from './index.module.css'
 
 import TabBar from "../../component/tabBar";
 import TabBarItem from "../../component/tabBarItem";

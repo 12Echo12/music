@@ -3,13 +3,15 @@ import { CloseOutlined } from '@ant-design/icons'
 import { FC } from 'react'
 import style from './index.module.css'
 import createLogin from '../login/index'
-import QrCodeLogin from './qrCodeLogin'
+import QrCodeLogin from './qrCodeLogin/index'
+import { useNavigate } from 'react-router-dom'
 
 
 interface LoginProps { }
 
 const Login: FC<LoginProps> = () => {
     // 关闭登录页面的click方法
+    const navigate = useNavigate();
     const handleClose = () => {
         createLogin.destroy()
     }

@@ -5,7 +5,6 @@ import { VideoDetailType } from '../type/videoDetail'
 import { parseBr } from '../utils'
 
 export const useVideoDetail = (id = '') => {
-    if (id == '') return [null, null]
     const [videoDetail, setVideoDetail] = useState<VideoDetailType>()
     const [videoUrl, setVideoUrl] = useState<
         {
@@ -36,6 +35,7 @@ export const useVideoDetail = (id = '') => {
             }
         })
     }, [])
+    if (id == '') return [null, null]
     return [videoDetail, videoUrl] as [
         VideoDetailType,
         { url: string; type: string; id: string; br: string }[]

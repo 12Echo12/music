@@ -9,7 +9,7 @@ import style from './index.module.css'
 import { downLoadMusic } from '../../../service/api/music'
 import { parseSecondToTime } from "../../../utils";
 // setMusicList????
-import { addMusic, setMusicList } from "../../../controller/musicController";
+import { AddMusic, SetMusicList } from "../../../controller/musicController";
 import { useNavigate } from "react-router-dom";
 
 import { SongType } from '../../../type/song'
@@ -28,11 +28,11 @@ const AlbumItem: FC<AlbumItemProps> = ({ title, songs, pic, defalutFold = true, 
 
 
     const handlePlayList = () => {
-        setMusicList(songs, 'musicList')
+        SetMusicList(songs, 'musicList')
     }
 
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
 
     const [fold, setFold] = useState(defalutFold)

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { getArtistDesc } from '../service/api/artist'
 
 export const useArtistDetail = (id = '') => {
-    if (!id) return [{}, true]
     const [artist, setArtist] = useState<any>({} as any)
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -15,5 +14,6 @@ export const useArtistDetail = (id = '') => {
                 setLoading(false)
             })
     }, [id])
+    if (!id) return [{}, true]
     return [artist, loading] as [any, boolean]
 }

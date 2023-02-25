@@ -5,7 +5,6 @@ import { getArtistAlbums } from '../service/api/artist'
 import { AlbumType } from '../type/album'
 
 export const useArtistAlbums = (id = '') => {
-    if (!id) return [[], true] as [AlbumType[], boolean]
     const [albums, setAlbums] = useState<AlbumType[]>([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -27,5 +26,6 @@ export const useArtistAlbums = (id = '') => {
             })
         setLoading(false)
     }, [id])
+    if (!id) return [[], true] as [AlbumType[], boolean]
     return [albums, loading] as [AlbumType[], boolean]
 }

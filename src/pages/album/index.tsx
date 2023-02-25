@@ -3,7 +3,7 @@ import { FC, useEffect, useMemo, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import Like from "../../components/Like";
 import MuTable, { TableColumnType } from "../../components/MuTable";
-import { addMusic, setMusicList } from "../../controller/musicController";
+import { AddMusic, SetMusicList } from "../../controller/musicController";
 import { downLoadMusic } from "../../service/api/music";
 import { parseSecondToTime } from "../../utils";
 import CommentTabPage from "../component/commentTabPage";
@@ -124,14 +124,14 @@ const Album: FC<AlbumProps> = () => {
     ]
 
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
     const handlePlayList = () => {
         if (!albumInfo) {
             return
         }
         const { songs } = albumInfo
-        setMusicList(songs, 'musicList')
+        SetMusicList(songs, 'musicList')
     }
 
     // 收藏功能

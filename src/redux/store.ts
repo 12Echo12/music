@@ -12,7 +12,7 @@ import { fmListSlice } from './fmList/slice'
 import musicInstance from '../controller/musicPlayer'
 import { changeMusic } from '../controller/musicController'
 
-// redux-persist
+// redux-persist    转换允许您自定义持久化和重新水化的状态对象。
 const SetTransform = createTransform(
     (inboundState: MusicControlState, key) => {
         return {

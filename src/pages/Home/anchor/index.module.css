@@ -1,0 +1,50 @@
+.anchor-header{
+    height: 160px;
+}
+.icon{
+    display: flex;
+    flex-wrap: wrap;
+}
+.iconbox{
+    width: 150px;
+    height: 80px;
+    text-align: center;
+}
+.iconbox :hover{
+    cursor: pointer;
+}
+/* .iconbox :hover .iconfont{
+    font-size: 30px;
+} */
+.iconbox .intro{
+    margin: 0;
+    height: 20px;
+    margin: 10px;
+    font-size: 14px;
+}
+a:hover{
+    cursor: pointer;
+}
+
+#actIconfont{
+    color: red;
+}
+.actIntro{
+    margin: 0;
+    height: 20px;
+    margin: 10px;
+    font-size: 14px;
+    color: red;
+}
+.goodnew{
+    margin-top: 30px;
+
+}
+.module1{
+    font-size: 24px;
+}
+.line{
+    margin-top: 5px;
+    height: 1px;
+    border-top: 2px solid red;
+}

@@ -19,13 +19,10 @@ interface UserDetailProps {
 
 const UserDetail: FC<UserDetailProps> = ({me}) => {
 
+    let iid = useParams().id
     // 该用户是否是用户自己！！！！
-    const id = me ? store.getState().user?.userInfo?.userId : useParams().id
-    console.log(id)
+    const id = me ? store.getState().user?.userInfo?.userId : iid
 
-    if (!id) return null
-
-    // 获取用的上的信息！！！
     const [userDeatil, loading, error] = useUserDetail(id)
     const [userInfo, setUserInfo] = useState<UserInfo>()
     useEffect(() => {
@@ -42,7 +39,7 @@ const UserDetail: FC<UserDetailProps> = ({me}) => {
             })
         }
     }, [userDeatil])
-    
+
 
     // tab 列表
     const [tabList, setTabList] = useState([
@@ -61,6 +58,9 @@ const UserDetail: FC<UserDetailProps> = ({me}) => {
     // 将相同的操作通过一个函数提取出来
     const [ownList, likeList, listLoading] = useUserPlayList(id)
     const [playListStyle, setPlayListStyle] = useState(0)
+
+    if (!id)
+        return null
 
     function playList(playList: any[]) {
         switch (playListStyle) {

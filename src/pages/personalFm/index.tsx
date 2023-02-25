@@ -9,7 +9,7 @@ import store, { RootState } from "../../redux/store";
 import ArNameItem from "../component/arNameItem";
 import CommentTabPage from "../component/commentTabPage";
 
-import { changeMusic, setMusicList } from '../../controller/musicController'
+import { changeMusic, SetMusicList } from '../../controller/musicController'
 import { useListControl } from "../../controller/listController";
 import { publicSlice } from "../../redux/publicSlice/slice";
 import { parseLrc } from '../../utils'
@@ -43,15 +43,17 @@ const PersonalFm: FC<PersonalFmProps> = () => {
     
     const navigate = useNavigate()
 
+    const borrowListControl = useListControl
+
     // 如果播放列表不是 fmList 格式的，换成 fmList 形式
     useEffect(() => {
-        const listControl = useListControl()
+        const listControl = borrowListControl()
         const { current } = listControl.getList()
         if (current === -1 || curListType !== 'fmList') {
             store.dispatch(publicSlice.actions.setCurListType('fmList'))
             getPersonalFm().then((res) => {
                 // setPersonalFmList(res.data)
-                setMusicList(res.data, 'fmList')
+                SetMusicList(res.data, 'fmList')
                 // store.dispatch(fmListSlice.actions.setList(res.data))
             })
         }

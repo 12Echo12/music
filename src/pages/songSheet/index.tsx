@@ -5,7 +5,7 @@ import Like from "../../components/Like";
 import Loading from "../../components/Loading";
 import MuTable, { TableColumnType } from "../../components/MuTable";
 import Toast from "../../components/Toast";
-import { addMusic, setMusicList } from "../../controller/musicController";
+import { AddMusic, SetMusicList } from "../../controller/musicController";
 import { parseSecondToTime } from "../../utils";
 import ArNameItem from "../component/arNameItem";
 import CommentTabPage from "../component/commentTabPage";
@@ -106,11 +106,11 @@ const SongSheet: FC<SongSheetProps> = () => {
     ]
 
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
     const handlePlayList = () => {
         const { tracks } = songSheetInfo
-        setMusicList(tracks, 'musicList')
+        SetMusicList(tracks, 'musicList')
     }
 
     const toggleSubscribe = () => {

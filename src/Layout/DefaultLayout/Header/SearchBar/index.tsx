@@ -10,7 +10,7 @@ import { SearchSuggestType, useSearchSuggest } from '../../../../hooks/useSearch
 import store from '../../../../redux/store'
 import { publicSlice } from '../../../../redux/publicSlice/slice'
 // ?????
-import { addMusic, getSongBaseInfoAndSet } from '../../../../controller/musicController'
+import { AddMusic, getSongBaseInfoAndSet } from '../../../../controller/musicController'
 
 interface SearchBarProps { }
 

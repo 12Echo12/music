@@ -8,7 +8,7 @@ import { FC, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Like from '../Like/index'
 import MuTable, { TableColumnType } from '../MuTable'
-import { addMusic, setMusicList } from '../../controller/musicController'
+import { AddMusic, SetMusicList } from '../../controller/musicController'
 import { downLoadMusic } from '../../service/api/music'
 import { SongType } from '../../type/song'
 import { parseSecondToTime } from '../../utils'
@@ -33,7 +33,7 @@ const PlayListPreviewCard: FC<PlayListPreviewCardProps> = ({
     loading
 }) => {
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
     const [fold, setFold] = useState(defalutFold)
     const sliceSongs = useMemo(() => {
@@ -96,7 +96,7 @@ const PlayListPreviewCard: FC<PlayListPreviewCardProps> = ({
         }
     ]
     const handlePlayList = () => {
-        setMusicList(songs, 'musicList')
+        SetMusicList(songs, 'musicList')
     }
     const navigate = useNavigate()
 

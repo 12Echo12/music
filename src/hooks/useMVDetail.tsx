@@ -5,7 +5,6 @@ import { parseBr } from '../utils'
 
 
 export const useMVDetail = (id = '') => {
-    if (id == '') return [null, null]
     const [videoDetail, setVideoDetail] = useState<MVVideoType>()
     const [videoUrl, setVideoUrl] = useState<
         {
@@ -37,6 +36,7 @@ export const useMVDetail = (id = '') => {
             }
         })
     }, [])
+    if (id == '') return [null, null]
     return [videoDetail, videoUrl] as [
         MVVideoType,
         { url: string; type: string; id: string; br: string }[]

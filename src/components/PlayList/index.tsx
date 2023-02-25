@@ -1,22 +1,23 @@
+import style from './index.module.css'
 import { FC, FunctionComponent } from 'react'
 import { useSelector } from '../../redux/hooks'
 import store from '../../redux/store'
-import style from './index.module.css'
-interface PlayListProps { }
 import MuTable, { TableColumnType } from '../MuTable/index'
 // ??
-import { addMusic, clearPlayList } from '../../controller/musicController'
+import { AddMusic, ClearPlayList } from '../../controller/musicController'
 import { parseSecondToTime } from '../../utils'
+
+interface PlayListProps { }
 
 const PlayList: FC<PlayListProps> = (props) => {
     const { list, current } = useSelector((state) => state.musicList)
     //??
     const onColDoubleClick = (data: any) => {
-        addMusic(data)
+        AddMusic(data)
     }
     //??
     const handleClearList = () => {
-        clearPlayList()
+        ClearPlayList()
     }
     const columns: TableColumnType[] = [
         {

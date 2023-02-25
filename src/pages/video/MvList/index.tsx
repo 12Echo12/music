@@ -7,7 +7,7 @@ import VideoListItem from "../../component/VideoListItem";
 
 import { useMVFirstList } from '../../../hooks/useMVFirstList'
 
-import style from './MVList.module.less'
+import style from './index.module.css'
 
 interface MVListProps { }
 

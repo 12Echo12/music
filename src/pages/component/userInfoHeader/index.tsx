@@ -1,5 +1,5 @@
 import { FC } from "react";
-import style from './UserInfoHeader.module.less'
+import style from './index.module.css'
 
 
 export interface UserInfo {

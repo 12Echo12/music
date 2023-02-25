@@ -26,7 +26,11 @@ const Home: FC<HomeProps> = () => {
         {
             title: '歌手',
             path:'/artists'
-        }   
+        },
+        {
+            title: '主播电台',
+            path: '/anchor'
+        }
     ])
 
     return (

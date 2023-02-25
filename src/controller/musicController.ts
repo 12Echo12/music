@@ -14,11 +14,11 @@ import { getSongDetail } from '../service/api/music'
 
 
 //新增一首音乐
-export const addMusic = async (data: any, options = { needPlay: true, needFetch: false }) => {
+export const AddMusic = async (data: any, options = { needPlay: true, needFetch: false }) => {
     const listControl = useListControl()
     const { current } = listControl.getList()
 
-    const { idx } = getMusicById(data.id)
+    const { idx } = GetMusicById(data.id)
     if (idx == -1) {
         listControl.addSongToPlayList(data)
         store.dispatch(
@@ -40,7 +40,7 @@ export const addMusic = async (data: any, options = { needPlay: true, needFetch:
 }
 
 // 通过id来获取音乐
-export const getMusicById = (id: string) => {
+export const GetMusicById = (id: string) => {
     const listControl = useListControl()
     const { list } = listControl.getList()
   
@@ -49,7 +49,7 @@ export const getMusicById = (id: string) => {
 }
 
 // 清空播放列表
-export const clearPlayList = () => {
+export const ClearPlayList = () => {
     const listControl = useListControl()
     store.dispatch(publicSlice.actions.setSongDetailOpen(false))
     listControl.clearList()
@@ -60,14 +60,14 @@ export const clearPlayList = () => {
 
 
 //切换上下一首歌曲
-export const changeMusic = debounce((direction: number, needPlay = true) => {
+export const changeMusic = debounce(async (direction: number, needPlay = true) => {
     const listControl = useListControl()
     const { list, current } = listControl.getList()
     if (list.length === 0) return
     const newIndex = (list.length + current + direction) % list.length
     audioInstance.clearCurMusic()
     listControl.curListType !== 'fmList' &&
-        store.dispatch(
+        await store.dispatch(
             getSongInfoAndSet({
                 song: list[newIndex],
                 needPlay
@@ -80,7 +80,7 @@ export const changeMusic = debounce((direction: number, needPlay = true) => {
 }, 500)
 
 
-export const setMusicList = (payload: any[], type: 'musicList' | 'fmList') => {
+export const SetMusicList = (payload: any[], type: 'musicList' | 'fmList') => {
     const listControl = useListControl()
     listControl.setList(payload, type)
 
@@ -92,6 +92,6 @@ export const getSongBaseInfoAndSet = (id: number) => {
     getSongDetail(id).then((res) => {
         const song = res.songs?.[0]
 
-        song && addMusic(song)
+        song && AddMusic(song)
     })
 }
