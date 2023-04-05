@@ -1,4 +1,5 @@
 // 歌单相关api
+import axios from 'axios';
 import axRequest from '../../index'
 
 enum SONG_SHEETS_API {
@@ -14,8 +15,8 @@ enum SONG_SHEETS_API {
 
 //获取每日推荐歌单
 export function getDailyRecommend() {
-    return axRequest.get({
-        url: SONG_SHEETS_API.GET_DAILY_RECOMMEND
+    return axios.get(`http://localhost:3000/personalized`).then(res => {
+        return res.data;
     })
 }
 
@@ -28,11 +29,8 @@ export function getPersonalFm() {
 
 //获取喜欢列表
 export function getLikeList(uid: string | number) {
-    return axRequest.get({
-        url: SONG_SHEETS_API.GET_LIKE_LIST,
-        params: {
-            uid
-        }
+    return axios.get(`http://localhost:3000/likelist?uid=8023474819`).then(res => {
+        return res.data;
     })
 }
 

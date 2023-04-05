@@ -25,7 +25,9 @@ const Suggest: FC<SuggestProps> = () => {
     useEffect(() => {
         // 后端接口 ：来获得每日歌单推荐！！！
         getDailyRecommend().then((res) => {
-            setSongSheets(res.recommend)
+            console.log(res)
+            setSongSheets(res.result)
+            console.log(res.result)
         })
         // 后端接口：来获得每日轮播图推荐！！！
         getBanner().then((res) => {
@@ -35,13 +37,13 @@ const Suggest: FC<SuggestProps> = () => {
 
     // 点一下轮播图，开始放歌
     const handleBannerClick = (item: any) => {
+        console.log(item)
         switch (item.targetType) {
             case 1:
                 AddMusic(item.song)
                 break
         }
     }
-    
     return (
         <div className={style.suggest}>
             {/* 轮播图！！！！ */}

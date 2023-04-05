@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import style from './index.module.css'
 import './transition.css'
-import logo from '../../../assets/img/logo.png'
 import {
     BorderOutlined,
     CloseOutlined,
@@ -66,6 +65,7 @@ const Header: FC = () => {
                         <IconFont className={style.icon} type={`icon-wangyiyunyinlelogo-copy`} />
                     </Link>
                 </div>
+                {/* 导航键and搜索框部分 */}
                 <div className={`${style.left} ${songDetailOpen ? style.leftOpenStyle : ''}`}>
                     <div className={style.navBar}>
                         <div className={style.navBtn}>
@@ -79,6 +79,7 @@ const Header: FC = () => {
                         <SearchBar />
                     </div>
                 </div>
+                {/* 登陆部分 */}
                 <div className={style.right}>
                     {userInfo ? (
                         <Link className={style.loginItem} to='/user/me'>

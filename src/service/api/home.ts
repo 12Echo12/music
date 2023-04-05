@@ -1,4 +1,5 @@
 // 主页相关api
+import axios from 'axios'
 import axRequest from '../index'
 
 enum HOME_API {
@@ -8,7 +9,7 @@ enum HOME_API {
 
 //获取轮播图
 export function getBanner() {
-    return axRequest.get({
-        url: HOME_API.GET_BANNER
+    return axios.get(`http://localhost:3000/banner?type=3`).then(res => {
+        return res.data
     })
 }

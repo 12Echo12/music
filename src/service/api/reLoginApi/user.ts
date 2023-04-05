@@ -1,3 +1,4 @@
+import axios from 'axios';
 import axRequest from '../../index'
 
 enum USER_API {
@@ -7,10 +8,7 @@ enum USER_API {
 
 // 获取用户信息
 export function getUserInfo(uid: string|undefined) {
-    return axRequest.get({
-        url: USER_API.GET_USER_INFO,
-        params: {
-            uid
-        }
+    return axios.get(`http://localhost:3000/user/detail?uid=8023474819`).then(res => {
+        return res.data;
     })
 }

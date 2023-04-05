@@ -48,9 +48,9 @@ const Swiper: FC<SwiperProps> = (props) => {
             style: {
                 ...(i !== (curIndex + children.length + 1) % children.length
                     ? {
-                        transform: `translate3d(-50%,0, -10px)`,
+                        left: '50%',
+                        transform: ' translate3d(-50%,0, -10px)',
                         zIndex: 1,
-                        left: '50%'
                     }
                     : {}),
                 ...(i === (curIndex + children.length - 1) % children.length
@@ -63,14 +63,18 @@ const Swiper: FC<SwiperProps> = (props) => {
                     : {}),
                 ...(i === (curIndex + children.length + 1) % children.length
                     ? {
-                        left: swiperWidth - 540 + 'px',
-                        zIndex: 2,
-                        transform: ' rotate3d(0,1,0,-2deg)',
-                        transformOrigin: 'right center'
+                        left: "50%",
+                        transform: 'translate3d(50%,0,0) rotate3d(0,1,0,-2deg)',
+                        transformOrigin: 'right center',
+                        zIndex: 2
                     }
                     : {}),
                 ...(i === curIndex
-                    ? { transform: `translate3d(-50%, 0, 5px)`, zIndex: 3, left: '50%' }
+                    ? {
+                        left: '50%',
+                        transform: `translate3d(-50%, 0, 5px)`,
+                        zIndex: 3, 
+                    }
                     : {})
             }
         })

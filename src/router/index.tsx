@@ -10,6 +10,7 @@ import store, { RootState } from '../redux/store'
 import createLogin from '../components/login'
 import { useSelector } from 'react-redux'
 import UserDetail from '../pages/userDetail'
+const Login = lazy(() => import('../components/login/Login'))
 const Content = lazy(() => import('../Layout/DefaultLayout/content/index'))
 const Home = lazy(() => import('../pages/Home'))
 const MusicDetail = lazy(() => import('../Layout/DefaultLayout/musicDetail'))
@@ -141,6 +142,14 @@ export const GetRoutes = () => {
                             )
                         },
                     ]
+                },
+                {
+                    path: '/login',
+                    element: (
+                        <Suspense fallback={<Loading />}>
+                            <Login />
+                        </Suspense>
+                    ),
                 },
                 {
                     path: '/video',

@@ -13,8 +13,8 @@ import {
     getQRCodeKey,
     getQRCodeImage,
     checkQRCodeStatus,
-    checkLoginStatus
 } from '../../../service/api/login'
+
 import Toast from '../../Toast'
 
 
@@ -59,7 +59,7 @@ const QrCodeLogin: FC<QrCodeLoginProps> = ({ handleClose }) => {
                     .then((res: any) => {
                         if (res.code === 200) {
                             // 通过后端接口 获得了二维码的地址
-                            const qrCodeImageUrl = res.data.qrimg
+                            const qrCodeImageUrl = res.data.qrimg;
                             // 将二维码地址更新到状态中
                             setQrCodeImageUrl(qrCodeImageUrl)
                             //开始监听状态

@@ -1,4 +1,4 @@
-import axRequest from '../index'
+import axios from 'axios'
 
 enum LoginAPI {
     //获取二维码Key
@@ -15,50 +15,33 @@ enum LoginAPI {
 
 //获取二维码key
 export function getQRCodeKey() {
-    return axRequest.get({
-        url: LoginAPI.GET_QRCODE_KEY,
-        params: {
-            timerstamp: +Date.now()
-        }
+    return axios.get(`http://localhost:3000/login/qr/key`).then(res => {
+        return res.data;
     })
+     
 }
 
 //生成二维码
 export function getQRCodeImage(key: string) {
-    return axRequest.get({
-        url: LoginAPI.GET_QRCODE_IMAGE,
-        params: {
-            key,
-            timerstamp: +Date.now(),
-            qrimg: true
-        }
-    })
+    return axios.get(`http://localhost:3000/login/qr/create?key=${key}&qrimg`)
 }
 
 //检测二维码状态
 export function checkQRCodeStatus(key: string) {
-    return axRequest.get({
-        url: LoginAPI.CHECK_QRCODE_STATUS,
-        params: {
-            key,
-            timerstamp: +Date.now()
-        }
-    })
+    return axios.get(`http://localhost:3000/login/qr/check?key=${key}`)
 }
 
 //检测登陆状态
 export function checkLoginStatus() {
-    return axRequest.get({
-        url: LoginAPI.CHECK_LOGIN_STATUS
+    return axios.get(`http://localhost:3000/login/status`).then(res => {
+        console.log(res)
+        return res.data;
     })
 }
 
 //获取用户歌单
 export function getUserPlayList(uid: string | undefined) {
-    return axRequest.get({
-        url: LoginAPI.GET_USER_PLAYLIST,
-        params: {
-            uid
-        }
+    return axios.get(`http://localhost:3000/user/playlist?uid=8023474819`).then(res => {
+        return res.data;
     })
 }

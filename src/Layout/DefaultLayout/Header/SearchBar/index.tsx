@@ -96,14 +96,15 @@ const SearchBar: FC<SearchBarProps> = () => {
             <SearchOutlined onClick={() => handleSearch()} className={style.searchIcon} />
             <input value={searchInput} onInput={handleInputChange} type='text' />
             <CSSTransition in={showTip} timeout={300} classNames='showTip' unmountOnExit>
+            {/* 搜索下拉菜单部分 */}
                 <div className={style.searchInfoTipWrap}>
 
-                // 如果搜索框是空白的情况下，下拉菜单要默认显示的内容
+                {/* 如果搜索框是空白的情况下，下拉菜单要默认显示的内容 */}
 
                     {searchInput === '' || searchSuggest?.order.length === 0 ? (
                         <>
                             <div className={style.history}>
-                                // 搜索历史显示内容
+                                {/* // 搜索历史显示内容 */}
                                 {searchHistory.length !== 0 && (
                                     <>
                                         <div className={style.historyTitle}>搜索历史</div>

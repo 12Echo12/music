@@ -1,10 +1,10 @@
 import AxRequest from './request/index'
-import { BASE_URL } from './request/config'
+// import { BASE_URL } from './request/config'
 import store from '../redux/store'
 import Toast from '../components/Toast'
 
 const axRequest = new AxRequest({
-    baseURL: BASE_URL,
+    // baseURL: BASE_URL,
     timeout: 20000,
     interceptors: {
         requestInterceptor: (config) => {

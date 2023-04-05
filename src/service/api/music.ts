@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Toast from '../../components/Toast'
 import axRequest from '../index'
 
@@ -39,11 +40,8 @@ export function getPlaylistDetail(id: string | number) {
 
 //获取歌曲详情
 export function getSongDetail(ids: number | string) {
-    return axRequest.get({
-        url: MUSIC_API.GET_SONG_DETAIL,
-        params: {
-            ids
-        }
+    return axios.get(`http://localhost:3000/playlist/detail?id=${ids}`).then(res => {
+        return res.data;
     })
 }
 
@@ -59,21 +57,15 @@ export function getPersonalizedSongSheets(limit = 30) {
 
 //获取歌曲歌词
 export function getSongLyric(id: number | string) {
-    return axRequest.get({
-        url: MUSIC_API.GET_SONG_LYRIC,
-        params: {
-            id
-        }
+    return axios.get(`http://localhost:3000/lyric?id=${id}`).then(res => {
+        return res.data;
     })
 }
 
 //获取歌曲Url
 export function getSongUrl(id: number | string) {
-    return axRequest.get({
-        url: MUSIC_API.GET_SONG_URL,
-        params: {
-            id
-        }
+    return axios.get(`http://localhost:3000/song/url?id=${id}`).then(res => {
+        return res.data;
     })
 }
 
