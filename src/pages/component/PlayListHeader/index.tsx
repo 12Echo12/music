@@ -1,5 +1,8 @@
 import { CaretDownOutlined, CaretUpOutlined, createFromIconfontCN, DownloadOutlined, PlusOutlined, ShareAltOutlined, StarOutlined } from "@ant-design/icons";
 import { FC, useState } from "react";
+import {
+    RollbackOutlined
+} from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import { formatNumber, formatTime } from "../../../utils";
 import HeaderButton from "../headerButton";
@@ -32,7 +35,7 @@ const PlayListHeader: FC<PlayListHeaderProps> = (
         listInfo,
         type,
         handlePlayList,
-        toggleSubscribe
+        toggleSubscribe,
     }
 ) => {
     // 如果是自己创建的歌单，就没有收藏这个功能

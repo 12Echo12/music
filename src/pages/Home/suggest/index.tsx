@@ -25,9 +25,7 @@ const Suggest: FC<SuggestProps> = () => {
     useEffect(() => {
         // 后端接口 ：来获得每日歌单推荐！！！
         getDailyRecommend().then((res) => {
-            console.log(res)
             setSongSheets(res.result)
-            console.log(res.result)
         })
         // 后端接口：来获得每日轮播图推荐！！！
         getBanner().then((res) => {
@@ -64,9 +62,9 @@ const Suggest: FC<SuggestProps> = () => {
             <LinkTab title='推荐歌单' to='/' />
             {/* 歌单展示 */}
             <div className={`sheetWrap`}>
-                {songSheets.map((item) => (
-                    <SongSheetItem songSheetInfo={item} key={item.id} />
-                ))}
+                {songSheets.map((item) => {
+                    return (<SongSheetItem songSheetInfo={item} key={item.id} />);
+                })}
             </div>
         </div>
     )

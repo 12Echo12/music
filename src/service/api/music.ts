@@ -30,28 +30,22 @@ export enum MUSIC_API {
 
 //获取歌单详情
 export function getPlaylistDetail(id: string | number) {
-    return axRequest.get({
-        url: MUSIC_API.GET_PLAYLIST_DETAIL,
-        params: {
-            id
-        }
+    return axios.get(`http://localhost:3000/playlist/detail?id=${id}`).then(res => {
+        return res.data;
     })
 }
 
 //获取歌曲详情
 export function getSongDetail(ids: number | string) {
-    return axios.get(`http://localhost:3000/playlist/detail?id=${ids}`).then(res => {
+    return axios.get(`http://localhost:3000/song/detail?id=${ids}`).then(res => {
         return res.data;
     })
 }
 
 //获取推荐歌单
 export function getPersonalizedSongSheets(limit = 30) {
-    return axRequest.get({
-        url: MUSIC_API.GET_PERSONALIZED_SONG_SHEETS,
-        params: {
-            limit
-        }
+    return axios.get(`http://localhost:3000/personalized?limit=${limit}`).then(res => {
+        return res.data;
     })
 }
 

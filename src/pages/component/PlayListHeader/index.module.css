@@ -14,12 +14,12 @@
     height: 200px;
     width: 200px;
     overflow: hidden;
-    margin-right: 20px;
 }
 
 .listDescribe {
     display: flex;
     flex-direction: column;
+    transform: translateX(10px);
 }
 
 .listImage img {
@@ -32,7 +32,6 @@
     font-size: 16px;
     font-weight: bold;
     line-height: 30px;
-
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
